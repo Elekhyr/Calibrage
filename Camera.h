@@ -1,5 +1,9 @@
 #pragma once
+#ifdef _WIN32
 #include <opencv2\opencv.hpp>
+#else
+#include <opencv2/opencv.hpp>
+#endif
 #include "CameraProperties.h"
 class Camera
 {

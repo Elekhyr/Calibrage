@@ -1,3 +1,4 @@
+#include <exception>
 #include "Camera.h"
 
 
@@ -16,7 +17,8 @@ void Camera::Init()
 {
 	if (!mCapture.isOpened())
 	{
-		throw std::exception("Can't open video capture");
+//		throw std::exception("Can't open video capture");
+        exit(-5);
 	}
 }
 
