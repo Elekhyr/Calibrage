@@ -21,7 +21,13 @@ int main()
 
 	while (camera.Capture())
 	{
-		cv::imshow("Webcam", camera.Snapshot());
+		cv::Mat mat; 
+		auto vec = chessboard.GetCorners(camera.Snapshot());
+
+		camera.Snapshot().copyTo(mat);
+
+		chessboard.DrawCorners(vec, mat);
+		cv::imshow("Webcam", mat);
 		cv::waitKey(1);
 	}
 	return 0;
