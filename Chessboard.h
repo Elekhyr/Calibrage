@@ -1,7 +1,11 @@
 #pragma once
 #include "ChessboardProperties.h"
 #include <vector>
+#ifdef _WIN32
 #include <opencv2\opencv.hpp>
+#else
+#include <opencv2/opencv.hpp>
+#endif
 class Chessboard
 {
 public:
