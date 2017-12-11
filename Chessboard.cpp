@@ -1,3 +1,4 @@
+
 #include "Chessboard.h"
 
 
@@ -13,15 +14,7 @@ Chessboard::~Chessboard()
 
 void Chessboard::SetProperties(const ChessboardProperties & properties)
 {
-}
-
-std::vector<cv::Vec2f> Chessboard::GetCorners(const cv::Mat & image)
-{
-	std::vector<cv::Vec2f> corners;
-
-	mFound = cv::findChessboardCorners(image, cv::Size(4, 7), corners, CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_NORMALIZE_IMAGE);
-
-	return corners;
+	mProperties = properties;
 }
 
 void Chessboard::DrawCorners(const std::vector<cv::Vec2f>& corners, cv::Mat & image)
@@ -37,6 +30,15 @@ void Chessboard::DrawCorners(const std::vector<cv::Vec2f>& corners, cv::Mat & im
 	}
 }
 
+std::vector<cv::Vec2f> Chessboard::GetCorners(const cv::Mat & image)
+{
+	std::vector<cv::Vec2f> corners;
+
+	mFound = cv::findChessboardCorners(image, cv::Size(4, 7), corners, CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_NORMALIZE_IMAGE);
+
+	return corners;
+}
+
 void Chessboard::CreateKnownCorners()
 {
     mCorners.clear();
@@ -49,4 +51,3 @@ void Chessboard::CreateKnownCorners()
 		}
 	}
 }
-
