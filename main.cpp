@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include "Chessboard.h"
+#include "ChessboardProperties.h"
 
 int main()
 {
@@ -34,7 +35,8 @@ int main()
 
 		chessboard.DrawCorners(vec, mat);
 		cv::imshow("Webcam", mat);
-		cv::waitKey(1);
+		if (cv::waitKey(1) == 27)
+			break;
 	}
 	return 0;
 }

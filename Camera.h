@@ -16,6 +16,7 @@ public:
 	{
 		return mProperties;
 	}
+
 	void SetProperties(const CameraProperties& properties);
 	void Calibrate();
 	bool Capture();
@@ -28,4 +29,3 @@ private:
 	cv::Mat mFrame;
 	CameraProperties mProperties;
 };
-

@@ -14,6 +14,29 @@ ChessboardProperties::~ChessboardProperties()
 {
 }
 
+ChessboardProperties::ChessboardProperties(const ChessboardProperties & rhs)
+{
+	if (this != &rhs)
+	{
+		dimension = rhs.dimension;
+		nbCols = rhs.nbCols;
+		nbRows = rhs.nbRows;
+		squareLength = rhs.squareLength;
+	}
+}
+
+const ChessboardProperties & ChessboardProperties::operator=(const ChessboardProperties & rhs)
+{
+	if (this != &rhs)
+	{
+		dimension = rhs.dimension;
+		nbCols = rhs.nbCols;
+		nbRows = rhs.nbRows;
+		squareLength = rhs.squareLength;
+	}
+	return *this;
+}
+
 void ChessboardProperties::ReadFromFile(const std::string & path)
 {
 	std::ifstream stream;

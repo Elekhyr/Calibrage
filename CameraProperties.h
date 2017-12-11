@@ -10,6 +10,9 @@ struct CameraProperties
 	CameraProperties();
 	~CameraProperties();
 
+	CameraProperties(const CameraProperties& rhs);
+	const CameraProperties& operator=(const CameraProperties& rhs);
+
 	void ReadFromFile(const std::string& path);
 	void SaveToFile(const std::string& path) const ;
 

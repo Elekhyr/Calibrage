@@ -12,6 +12,37 @@ CameraProperties::~CameraProperties()
 {
 }
 
+CameraProperties::CameraProperties(const CameraProperties & rhs)
+{
+	if (this != &rhs)
+	{
+		center = rhs.center;
+		focalDist = rhs.focalDist;
+		ratio_x = rhs.ratio_x;
+		ratio_y = rhs.ratio_y;
+		rx = rhs.rx;
+		ry = rhs.ry;
+		rz = rhs.rz;
+		translation = rhs.translation;
+	}
+}
+
+const CameraProperties & CameraProperties::operator=(const CameraProperties & rhs)
+{
+	if (this != &rhs)
+	{
+		center = rhs.center;
+		focalDist = rhs.focalDist;
+		ratio_x = rhs.ratio_x;
+		ratio_y = rhs.ratio_y;
+		rx = rhs.rx;
+		ry = rhs.ry;
+		rz = rhs.rz;
+		translation = rhs.translation;
+	}
+	return *this;
+}
+
 void CameraProperties::ReadFromFile(const std::string & path)
 {
 	std::ifstream stream;

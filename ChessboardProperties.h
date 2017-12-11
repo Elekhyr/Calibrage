@@ -5,6 +5,9 @@ struct ChessboardProperties
 {
 	ChessboardProperties();
 	~ChessboardProperties();
+	ChessboardProperties(const ChessboardProperties& rhs);
+	const ChessboardProperties& operator=(const ChessboardProperties& rhs);
+
 	void ReadFromFile(const std::string& path);
 	void WriteToFile(const std::string& path);
 
