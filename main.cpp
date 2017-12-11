@@ -1,10 +1,17 @@
 #include "Camera.h"
 #include "Chessboard.h"
+#include "ChessboardProperties.h"
 
 int main()
 {
 	Camera camera;
+	
 	Chessboard chessboard;
+	ChessboardProperties cp;
+	cp.ReadFromFile("chessboard.json");
+	chessboard.SetProperties(cp);
+
+	camera._Properties().SaveToFile("camera.json");
 
 	try {
 		camera.Init();
@@ -28,7 +35,8 @@ int main()
 
 		chessboard.DrawCorners(vec, mat);
 		cv::imshow("Webcam", mat);
-		cv::waitKey(1);
+		if (cv::waitKey(1) == 27)
+			break;
 	}
 	return 0;
 }

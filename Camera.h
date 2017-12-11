@@ -13,8 +13,13 @@ public:
 	~Camera();
 
 	void Init();
+	const CameraProperties& _Properties() const
+	{
+		return mProperties;
+	}
+
 	void SetProperties(const CameraProperties& properties);
-    void Calibrate(const std::vector<cv::Mat> calibrationImages, Chessboard chessboard, cv::Size boardSize, float edgeLength, cv::Mat& distanceCoefficient);
+    void Calibrate(const std::vector<cv::Mat>& calibrationImages, Chessboard chessboard, cv::Size boardSize, float edgeLength, cv::Mat& distanceCoefficients);
 	bool Capture();
 	const cv::Mat& Snapshot();
 

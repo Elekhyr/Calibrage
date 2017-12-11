@@ -1,8 +1,6 @@
 #include <exception>
 #include "Camera.h"
 
-
-
 Camera::Camera()
 	: mCapture(0)
 {
@@ -27,7 +25,7 @@ void Camera::SetProperties(const CameraProperties & properties)
 	mProperties = properties;
 }
 
-void Camera::Calibrate(const std::vector<cv::Mat> calibrationImages, Chessboard chessboard, cv::Size boardSize, float edgeLength, cv::Mat& distanceCoefficients)
+void Camera::Calibrate(const std::vector<cv::Mat>& calibrationImages, Chessboard chessboard, cv::Size boardSize, float edgeLength, cv::Mat& distanceCoefficients)
 {
     std::vector<std::vector<cv::Vec2f>> imageSpaceCorners;
     std::vector<std::vector<cv::Vec3f>> worldSpaceCorners(1);

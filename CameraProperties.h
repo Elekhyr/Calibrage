@@ -10,8 +10,11 @@ struct CameraProperties
 	CameraProperties();
 	~CameraProperties();
 
+	CameraProperties(const CameraProperties& rhs);
+	const CameraProperties& operator=(const CameraProperties& rhs);
+
 	void ReadFromFile(const std::string& path);
-	void SaveToFile(const std::string& path);
+	void SaveToFile(const std::string& path) const ;
 
 	// Internal parameters
 	cv::Vec2d center; /// Camera origin
@@ -22,7 +25,7 @@ struct CameraProperties
 	// Position and orientation of the camera relative to the scene
 
 	cv::Vec3d translation; /// Translation matrix to make the camera origin match with the scene origin
-	cv::Mat3d rotation; /// Rotation matrix to align scene and camera axis
+	double rx, ry, rz; /// Rotation coefficients to align scene and camera axis
 	
 	double focalDist; /// Focal distance of the camera
 };

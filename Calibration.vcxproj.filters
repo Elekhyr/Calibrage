@@ -45,4 +45,12 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="camera.json">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="chessboard.json">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+  </ItemGroup>
 </Project>
