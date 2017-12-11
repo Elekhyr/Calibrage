@@ -1,6 +1,10 @@
 #pragma once
 #include <string>
+#ifdef _WIN32
 #include <opencv2\opencv.hpp>
+#else
+#include <opencv2/opencv.hpp>
+#endif
 struct ChessboardProperties
 {
 	ChessboardProperties();
