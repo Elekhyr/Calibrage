@@ -39,6 +39,7 @@ void Chessboard::DrawCorners(const std::vector<cv::Vec2f>& corners, cv::Mat & im
 
 void Chessboard::CreateKnownCorners()
 {
+    mCorners.clear();
 	mCorners.reserve(mProperties.nbCols * mProperties.nbRows);
 	for (unsigned i = 0; i < mProperties.nbRows; ++i)
 	{
