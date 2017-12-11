@@ -54,6 +54,5 @@ void ChessboardProperties::WriteToFile(const std::string & path)
 	}
 	catch (std::exception& e) {
 		std::cerr << "Exception" << e.what() << std::endl;
-		return;
 	}
 }

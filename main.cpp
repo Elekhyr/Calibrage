@@ -4,10 +4,13 @@
 int main()
 {
 	Camera camera;
+	
 	Chessboard chessboard;
 	ChessboardProperties cp;
 	cp.ReadFromFile("chessboard.json");
 	chessboard.SetProperties(cp);
+
+	camera._Properties().SaveToFile("camera.json");
 
 	try {
 		camera.Init();

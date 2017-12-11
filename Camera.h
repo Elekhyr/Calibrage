@@ -8,6 +8,10 @@ public:
 	~Camera();
 
 	void Init();
+	const CameraProperties& _Properties() const
+	{
+		return mProperties;
+	}
 	void SetProperties(const CameraProperties& properties);
 	void Calibrate();
 	bool Capture();
