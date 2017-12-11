@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <opencv2\opencv.hpp>
 struct ChessboardProperties
 {
 	ChessboardProperties();
@@ -7,7 +8,7 @@ struct ChessboardProperties
 	void ReadFromFile(const std::string& path);
 	void WriteToFile(const std::string& path);
 
-	double dimension; /// dimension of the chessboard
+	cv::Size dimension; /// dimension of the chessboard
 	double squareLength; /// Length of the edge of a square
 
 	double nbCols; /// Number of aruco in columns

@@ -146,7 +146,16 @@
     <ClInclude Include="Chessboard.h" />
     <ClInclude Include="ChessboardProperties.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="camera.json" />
+    <None Include="chessboard.json" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

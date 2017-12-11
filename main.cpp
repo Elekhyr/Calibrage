@@ -5,6 +5,9 @@ int main()
 {
 	Camera camera;
 	Chessboard chessboard;
+	ChessboardProperties cp;
+	cp.ReadFromFile("chessboard.json");
+	chessboard.SetProperties(cp);
 
 	try {
 		camera.Init();
