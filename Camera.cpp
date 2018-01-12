@@ -27,6 +27,7 @@ void Camera::SetProperties(const CameraProperties & properties)
 
 void Camera::Calibrate(const std::vector<cv::Mat>& calibrationImages, Chessboard chessboard, cv::Size boardSize, float edgeLength, cv::Mat& distanceCoefficients)
 {
+	
     std::vector<std::vector<cv::Vec2f>> imageSpaceCorners;
     std::vector<std::vector<cv::Vec3f>> worldSpaceCorners(1);
     for (cv::Mat image : calibrationImages) {
@@ -34,14 +35,17 @@ void Camera::Calibrate(const std::vector<cv::Mat>& calibrationImages, Chessboard
     }
     chessboard.CreateKnownCorners();
 	
-	for (auto& p : chessboard.mCorners){
-		worldSpaceCorners[0].emplace_back(p[0], p[1], 0.f);
+	for (int i = 0; i < calibrationImages.size(); ++i){
+		for (auto& p : chessboard.mCorners){
+			worldSpaceCorners[i].emplace_back(p[0], p[1], 0.f);
+		}
 	}
-	
 	
     std::vector<cv::Mat> rVectors, tVectors;
     distanceCoefficients = cv::Mat::zeros(8,1, CV_64F);
-    cv::calibrateCamera(worldSpaceCorners, imageSpaceCorners, boardSize, cameraMatrix, distanceCoefficients, rVectors, tVectors);
+	cameraMatrix = cv::Mat::zeros(3, 3, CV_64F);
+	
+    cv::calibrateCamera(worldSpaceCorners, imageSpaceCorners, calibrationImages.front().size(), cameraMatrix, distanceCoefficients, rVectors, tVectors);
 }
 
 bool Camera::Capture()
