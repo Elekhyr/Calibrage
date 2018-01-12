@@ -22,11 +22,12 @@ int main()
 	}
 	
 	std::vector<cv::Mat> ims(1);
-	ims[0] = cv::imread("/Users/lois/Documents/M2/TIV3D/fish8.jpg");//Choisir image à corriger ici
+	ims[0] = cv::imread("/Users/lois/Documents/M2/TIV3D/fish8.jpg");//Choisir image de calibration ici
+	cv::Mat imIn = cv::imread("/Users/lois/Documents/M2/TIV3D/fish8.jpg");//Choisir image à corriger ici
 	
 	cv::Mat out;
 	camera.Calibrate(ims, chessboard);
-	camera.corrige(ims[0], out);
+	camera.corrige(imIn, out);
 	
 	int framesPerSecond = 20;
 
