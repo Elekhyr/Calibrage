@@ -7,7 +7,7 @@ int main()
 	Camera camera;
 	Chessboard chessboard;
 	ChessboardProperties cp;
-	cp.ReadFromFile("/Users/lois/Documents/M2/TIV3D/AnalyseImage-TP2/chessboard.json");
+	cp.ReadFromFile("chessboard.json");
 	chessboard.SetProperties(cp);
 
 	camera._Properties().SaveToFile("camera.json");
@@ -22,7 +22,7 @@ int main()
 	}
 	
 	std::vector<cv::Mat> ims(1);
-	ims[0] = cv::imread("/Users/lois/Documents/M2/TIV3D/fish8.jpg", CV_LOAD_IMAGE_COLOR);
+	ims[0] = cv::imread("/Users/lois/Documents/M2/TIV3D/fish8.jpg");//Choisir image à corriger ici
 	
 	cv::Mat out;
 	camera.Calibrate(ims, chessboard);
@@ -32,14 +32,14 @@ int main()
 
 	cv::namedWindow("Webcam", CV_WINDOW_AUTOSIZE);
 
-	while (camera.Capture())
+	while (1)//camera.Capture())
 	{
 		cv::Mat mat; 
-		auto vec = chessboard.GetCorners(camera.Snapshot());
+		//auto vec = chessboard.GetCorners(camera.Snapshot());
 
-		camera.Snapshot().copyTo(mat);
+		//camera.Snapshot().copyTo(mat);
 
-		chessboard.DrawCorners(vec, mat);
+		//chessboard.DrawCorners(vec, mat);
 		cv::imshow("Webcam", out);
 		if (cv::waitKey(1) == 27)
 			break;
