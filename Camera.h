@@ -19,8 +19,9 @@ public:
 	}
 
 	void SetProperties(const CameraProperties& properties);
-    void Calibrate(const std::vector<cv::Mat>& calibrationImages, Chessboard chessboard, cv::Size boardSize, float edgeLength, cv::Mat& distanceCoefficients);
+    void Calibrate(const std::vector<cv::Mat>& calibrationImages, Chessboard chessboard);
 	bool Capture();
+	void corrige(const cv::Mat& imageTordue, cv::Mat& imageCorrige);
 	const cv::Mat& Snapshot();
 
 private:
@@ -28,5 +29,6 @@ private:
 	cv::Mat mFrame;
 	CameraProperties mProperties;
     cv::Mat cameraMatrix;
+	cv::Mat distCoefficients;
 };
 
